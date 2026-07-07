@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import {Routes, Route} from "react-router-dom";
 import Home from "./pages/HomePage.jsx";
-import Auth from "./pages/AuthPage.jsx";
 import Workouts from "./pages/WorkoutsPage.jsx";
 import Exercises from "./pages/ExercisesPage.jsx";
 import About from "./pages/AboutPage.jsx";
+import SignUp from "./pages/SignUpPage.jsx";
+import SignIn from "./pages/SignInPage.jsx";
 
 export default function App() {
   return (
@@ -14,8 +15,8 @@ export default function App() {
           <Route path='/workouts' element={<Workouts/>}/>
           <Route path='/about' element={<About/>}/>
 
-          <Route path='/sign-in' element={<Auth/>}/>
-          <Route path='/sign-up' element={<Auth/>}/>
+          <Route path='/sign-in' element={<SignIn/>}/>
+          <Route path='/sign-up' element={<SignUp/>}/>
       </Routes>
 
   )
