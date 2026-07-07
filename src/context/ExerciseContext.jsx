@@ -11,8 +11,13 @@ export default function ExerciseProvider({ children }) {
         setExercises(res.data);
     }
 
+    async function fetchExercise(id) {
+        const { data: res } = await api.get(`/exercise/${id}`);
+        return res.data;
+    }
+
     return (
-        <ExerciseContext.Provider value={{ fetchExercises, exercises }}>
+        <ExerciseContext.Provider value={{ fetchExercises, exercises, fetchExercise }}>
             {children}
         </ExerciseContext.Provider>
     )

@@ -50,7 +50,7 @@ export default function Exercises() {
                 if(value !== "") query[key] = value;
             })
 
-            const data = await fetchExercises(query);
+            await fetchExercises(query);
         } catch(e) {
             setApiError(e.response.data.message);
         } finally {
