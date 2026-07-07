@@ -26,8 +26,30 @@ export default function AuthProvider({ children }) {
         }
     }
 
+    async function signUpFunc(data) {
+        const { data: res } = await api.post("/auth/sign-up", data);
+
+        if(res.success){
+            setToken(res.data.token);
+            setUser(res.data.user);
+            setIsAuthenticated(true);
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("user", JSON.stringify(res.data.user));
+            navigate("/", { replace: true });
+        }
+    }
+
+    function logout() {
+        setToken(null);
+        setUser(null);
+        setIsAuthenticated(false);
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        navigate("/sign-in");
+    }
+
     return (
-        <AuthContext.Provider value={{ token, setToken, isAuthenticated, setIsAuthenticated, signInFunc, user }}>
+        <AuthContext.Provider value={{ token, setToken, isAuthenticated, setIsAuthenticated, signInFunc, signUpFunc, user, logout }}>
             {children}
         </AuthContext.Provider>
     )
