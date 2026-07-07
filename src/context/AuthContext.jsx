@@ -48,6 +48,11 @@ export default function AuthProvider({ children }) {
         navigate("/sign-in");
     }
 
+    async function getUser(id) {
+        const { data: res } = await api.get(`/exercise/${id}`);
+        return res.data;
+    }
+
     return (
         <AuthContext.Provider value={{ token, setToken, isAuthenticated, setIsAuthenticated, signInFunc, signUpFunc, user, logout }}>
             {children}
