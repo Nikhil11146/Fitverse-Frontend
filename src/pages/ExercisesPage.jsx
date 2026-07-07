@@ -59,7 +59,6 @@ export default function Exercises() {
     }
 
     useEffect(() => {
-        console.log(filters);
         fetchData();
     }, [filters])
 
@@ -173,11 +172,25 @@ export default function Exercises() {
             ): (exercises.length === 0)? (
                 <p>No Exercises Found</p>
             ): (
+
+                // _id, name, category, primaryMuscleGroup, secondaryMuscleGroup, equipment, force, mechanic, movementPattern, difficulty, description, instructions, imageUrl, videoUrl, isEquipmentBased
                 <div className="exercises-container">
                     {
-                        exercises.map(exercise => (
+                        exercises.map((exercise, index) => (
                             <div key={exercise._id} className="exercise-container">
-                                <h1>{exercise._id}</h1>
+                                <h1>{index + 1}. {exercise.name}</h1>
+                                <p>{exercise.category}</p>
+                                <p>{exercise.primaryMuscleGroup}</p>
+                                <p>{exercise.secondaryMuscleGroup}</p>
+                                <p>{exercise.equipment}</p>
+                                <p>{exercise.force}</p>
+                                <p>{exercise.mechanic}</p>
+                                <p>{exercise.movementPattern}</p>
+                                <p>{exercise.difficulty}</p>
+                                <p>{exercise.description}</p>
+                                <p>{exercise.difficulty}</p>
+                                <p>{exercise.instructions}</p>
+                                <p>{exercise.isEquipmentBased}</p>
                             </div>
                         ))
                     }
