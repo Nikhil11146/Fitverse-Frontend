@@ -1,0 +1,15 @@
+.workout-create-ai-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.workout-create-ai-page > form{
+    display: flex;
+    flex-direction: row;
+}
+
+.prompt-input {
+    height: min(10vh, 100px);
+    width: min(50vw, 1000px);;
+}

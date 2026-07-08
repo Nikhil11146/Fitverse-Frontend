@@ -1,0 +1,16 @@
+.exercise-container {
+    border-top: black solid 1px;
+    padding: 10px;
+}
+
+
+.exercise-info-container {
+    display: flex;
+    flex-direction: row;
+
+    gap: 10px;
+}
+
+.exercise-container > h1{
+    margin: 0;
+}

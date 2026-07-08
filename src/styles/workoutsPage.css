@@ -1,0 +1,13 @@
+.workouts-page-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.workout-functions-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 10px;
+}
