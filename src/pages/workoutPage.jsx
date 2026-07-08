@@ -27,20 +27,19 @@ export default function Workout() {
             setLoading(false);
         }
     }
-
     useEffect(() => {
         fetchData();
     }, [id])
 
     return (
-        <>
+        <div className="workout-page page">
             {
                 loading ? (
                     <p>Loading... </p>
                 ) : (
-                    <WorkoutContainer workout={workout} />
+                    <WorkoutContainer workout={workout} exercises={exercises}/>
                 )
             }
-        </>
+        </div>
     )
 }

@@ -4,12 +4,15 @@ import api from "../../api/axios.js";
 const WorkoutContext = createContext(null);
 
 export default function WorkoutProvider({ children }) {
-    const [workouts, setWorkouts] = useState(null);
 
     async function fetchWorkouts(query) {
         const { data: res } = await api.get("/workout/all", { params : query });
-        console.log(res);
-        setWorkouts(res.data);
+        return res.data;
+    }
+
+    async function fetchMyWorkouts() {
+        const { data: res } = await api.get("/workout");
+        return res.data;
     }
 
     async function fetchWorkout(id) {
@@ -23,7 +26,7 @@ export default function WorkoutProvider({ children }) {
     }
 
     return (
-        <WorkoutContext.Provider value={{ fetchWorkouts, workouts, fetchWorkout, createWorkoutAI }}>
+        <WorkoutContext.Provider value={{ fetchWorkouts, fetchWorkout, createWorkoutAI, fetchMyWorkouts }}>
             {children}
         </WorkoutContext.Provider>
     )

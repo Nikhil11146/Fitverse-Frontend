@@ -19,7 +19,7 @@ export default function SignIn() {
     }
 
     return (
-        <div className="auth-page">
+        <div className="auth-page page">
             <div className="form-container">
                 <h1>Sign In</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>

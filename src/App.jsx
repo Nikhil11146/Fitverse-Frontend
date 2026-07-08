@@ -11,6 +11,7 @@ import Footer from "./compenents/Footer.jsx";
 import Workout from "./pages/workoutPage.jsx";
 import WorkoutCreate from "./pages/WorkoutCreatePage.jsx";
 import WorkoutCreateAI from "./pages/WorkoutCreateAIPage.jsx";
+import MyWorkouts from "./pages/MyWorkoutsPage.jsx";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
 
                   <Route path='/workouts/create' element={<WorkoutCreate/>}/>
                   <Route path='/workouts/create-ai' element={<WorkoutCreateAI/>}/>
+                  <Route path='/workouts/my-workouts' element={<MyWorkouts/>}/>
                   <Route path='/workouts/:id' element={<Workout/>}/>
               </Routes>
           </div>

@@ -63,7 +63,7 @@ export default function Exercises() {
     }, [filters])
 
     return (
-        <div className="exercises-page">
+        <div className="exercises-page page">
             <h1>Exercises</h1>
             <div className="filter-navbar">
                 <input
@@ -179,16 +179,17 @@ export default function Exercises() {
                         exercises.map((exercise, index) => (
                             <div key={exercise._id} className="exercise-container">
                                 <h1>{index + 1}. {exercise.name}</h1>
-                                <p>{exercise.category}</p>
-                                <p>{exercise.primaryMuscleGroup}</p>
-                                <p>{exercise.secondaryMuscleGroup}</p>
-                                <p>{exercise.equipment}</p>
-                                <p>{exercise.force}</p>
-                                <p>{exercise.mechanic}</p>
-                                <p>{exercise.movementPattern}</p>
-                                <p>{exercise.difficulty}</p>
+                                <div className="exercise-info-container">
+                                    <p>{exercise.category}</p>
+                                    <p>{exercise.primaryMuscleGroup}</p>
+                                    <p>{exercise.secondaryMuscleGroup}</p>
+                                    <p>{exercise.equipment}</p>
+                                    <p>{exercise.force}</p>
+                                    <p>{exercise.mechanic}</p>
+                                    <p>{exercise.movementPattern}</p>
+                                    <p>{exercise.difficulty}</p>
+                                </div>
                                 <p>{exercise.description}</p>
-                                <p>{exercise.difficulty}</p>
                                 <p>{exercise.instructions}</p>
                                 <p>{exercise.isEquipmentBased}</p>
                             </div>

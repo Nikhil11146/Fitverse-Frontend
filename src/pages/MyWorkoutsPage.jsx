@@ -1,21 +1,21 @@
-import {useEffect, useState} from "react";
-import {useExercise} from "../context/ExerciseContext.jsx";
-import {useWorkout} from "../context/WorkoutContext.jsx";
 import {Link, useNavigate} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {useWorkout} from "../context/WorkoutContext.jsx";
+import {useExercise} from "../context/ExerciseContext.jsx";
 import {useUser} from "../context/UserContext.jsx";
 import {useAuth} from "../context/AuthContext.jsx";
 
-export default function Workouts() {
+export default function MyWorkouts() {
     const [filters, setFilters] = useState({search: ""});
     const [loading, setLoading] = useState(true);
     const [apiError, setApiError] = useState(null);
     const [workouts, setWorkouts] = useState([]);
-    const { fetchWorkouts } = useWorkout();
+    const { fetchMyWorkouts } = useWorkout();
     const [users, setUsers] = useState([]);
     const { fetchExercise } = useExercise()
     const { fetchUserDetails } = useUser();
+    const navigate = useNavigate()
     const { user } = useAuth();
-    const navigate = useNavigate();
 
     function handleFilterChange(filter) {
         const { name, value } = filter.target;
@@ -40,7 +40,7 @@ export default function Workouts() {
                 if(value !== "") query[key] = value;
             })
 
-            const workoutsData = await fetchWorkouts(query);
+            const workoutsData = await fetchMyWorkouts(query);
 
             setWorkouts(workoutsData);
 
@@ -61,18 +61,11 @@ export default function Workouts() {
     }, [filters])
 
     return (
-        <div className="workouts-page page">
-            <div className="workouts-page-header">
-                <h1>Workouts</h1>
-                <div className="workout-functions-container">
-                    <Link to="/workouts/create" className="custom-btn-1">Create Workout</Link>
-                    <Link to="/workouts/create-ai" className="custom-btn-1">Create Workout Using AI</Link>
-                    <Link to="/workouts/my-workouts" className="custom-btn-1">My Workouts</Link>
-                </div>
-            </div>
+        <div className="my-workouts-page page">
+            <h1>My Workouts</h1>
             <div className="workout-data-container">
                 <div className="filter-navbar">
-                    <input type="text" placeholder="Search exercises..." className="filter-input custom-input-1" name="search" value={filters.search} onChange={handleFilterChange}/>
+                    <input type="text" placeholder="Search exercises..." className="filter-input" name="search" value={filters.search} onChange={handleFilterChange}/>
                 </div>
                 { apiError && <p>{apiError}</p>}
                 {loading ? (
@@ -104,6 +97,7 @@ export default function Workouts() {
                     </div>
                 )}
             </div>
+
         </div>
     )
 }
