@@ -25,8 +25,12 @@ export default function WorkoutProvider({ children }) {
         return res.data;
     }
 
+    async function deleteWorkout(id) {
+        const { data: res } = await api.delete(`/workout/${id}`);
+    }
+
     return (
-        <WorkoutContext.Provider value={{ fetchWorkouts, fetchWorkout, createWorkoutAI, fetchMyWorkouts }}>
+        <WorkoutContext.Provider value={{ fetchWorkouts, fetchWorkout, createWorkoutAI, fetchMyWorkouts, deleteWorkout }}>
             {children}
         </WorkoutContext.Provider>
     )

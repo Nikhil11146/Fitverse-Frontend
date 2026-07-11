@@ -4,6 +4,8 @@ import {useWorkout} from "../context/WorkoutContext.jsx";
 import {useExercise} from "../context/ExerciseContext.jsx";
 import {useUser} from "../context/UserContext.jsx";
 import {useAuth} from "../context/AuthContext.jsx";
+import WorkoutContainer from "../compenents/WorkoutContainer.jsx";
+import WorkoutFunctionContainer from "../compenents/WorkoutFunctionContainer.jsx";
 
 export default function MyWorkouts() {
     const [filters, setFilters] = useState({search: ""});
@@ -76,22 +78,16 @@ export default function MyWorkouts() {
                     <div className="workouts-container">
                         {
                             workouts.map((workout, index) => (
-                                <Link key={workout._id} to={`/workouts/${workout._id}`}>
-                                    <div className="workout-container">
-                                        <h1>{index + 1}. {workout.name}</h1>
-                                        <p>{workout.description}</p>
-                                        <p>{users[index] ? users[index].displayName : "Loading.."}</p>
-                                        {
-                                            workout.ownerId === user._id && (
-                                                <div className="workout-function-container">
-                                                    <button>Delete</button>
-                                                    <button>Edit</button>
-                                                </div>
-
-                                            )
-                                        }
-                                    </div>
-                                </Link>
+                                <div key={workout._id} className="workout-container">
+                                    <Link to={`/workouts/${workout._id}`}>
+                                        <WorkoutContainer workout={workout} owner={users[index]}/>
+                                    </Link>
+                                    {
+                                        workout.ownerId === user._id && (
+                                            <WorkoutFunctionContainer id={workout._id}/>
+                                        )
+                                    }
+                                </div>
                             ))
                         }
                     </div>
