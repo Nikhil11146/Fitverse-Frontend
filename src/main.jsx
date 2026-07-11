@@ -7,6 +7,16 @@ import "./styles/workoutPage.css"
 import "./styles/exercisePage.css"
 import "./styles/workoutCreateAIPage.css"
 import "./styles/workoutsPage.css"
+import "./styles/exercisePickerModal.css"
+import "./styles/createWorkout.css"
+import "./styles/navbar.css"
+import "./styles/home.css"
+import "./styles/createWorkout.css"
+import "./styles/workoutContainer.css"
+import "./styles/about.css"
+import "./styles/myWorkouts.css"
+import "./styles/signIn.css"
+import "./styles/signUp.css"
 import Navbar from "./compenents/Navbar.jsx";
 import AuthProvider from "./context/AuthContext.jsx";
 import ExerciseProvider from "./context/ExerciseContext.jsx";
