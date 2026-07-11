@@ -1,6 +1,49 @@
-.workout-container {
-    border: black solid 1px;
-    padding: 10px;
-    margin-top: 10px;
+.workout-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
 
+.workout-page > p,
+.workout-page > h1 {
+    border: 3px solid #000;
+    background: #fff;
+    padding: 18px;
+    box-shadow: 6px 6px 0 #000;
+    margin: 0;
+}
+
+.workout-page .workout-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.workout-page .workout-function-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.workout-page .workout-function-container button {
+    border: 3px solid #000;
+    background: #fff;
+    color: #000;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #000;
+    transition: .1s;
+}
+
+.workout-page .workout-function-container button:hover {
+    background: #000;
+    color: #fff;
+}
+
+.workout-page .workout-function-container button:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
 }

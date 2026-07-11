@@ -5,7 +5,7 @@ export default function WorkoutContainer({ workout, owner, exercises, setWorkout
     const { user } = useAuth();
 
     return (
-        <div className="workout-container">
+        <div className="workout-card">
             <h1>{workout.name}</h1>
             <p>{workout.description}</p>
             <p>{owner ? owner.displayName : "Loading.."}</p>

@@ -1,13 +1,126 @@
+.workouts-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
 .workouts-page-header {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.workouts-page-header h1 {
+    margin: 0;
 }
 
 .workout-functions-container {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
-    margin: 10px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.workout-functions-container a {
+    text-decoration: none;
+}
+
+.workout-data-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.workouts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 24px;
+}
+
+.workouts-container > .workout-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.workouts-container > .workout-container > a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.workouts-container .workout-function-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.workouts-container .workout-function-container button {
+    border: 3px solid #000;
+    background: #fff;
+    color: #000;
+    padding: 10px 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #000;
+    transition: .1s;
+}
+
+.workouts-container .workout-function-container button:hover {
+    background: #000;
+    color: #fff;
+}
+
+.workouts-container .workout-function-container button:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+.workout-data-container > p {
+    border: 3px solid #000;
+    background: #fff;
+    padding: 18px;
+    box-shadow: 6px 6px 0 #000;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .workouts-page-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .workout-functions-container {
+        flex-direction: column;
+    }
+
+    .workout-functions-container a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .workouts-container {
+        grid-template-columns: 1fr;
+    }
+}
+.workouts-container > .workout-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    border: 3px solid #000;
+    background: #fff;
+    box-shadow: 6px 6px 0 #000;
+    padding: 20px;
+    transition: .15s;
+}
+
+.workouts-container > .workout-container:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 #000;
+}
+
+.workouts-container > .workout-container > a {
+    color: inherit;
+    text-decoration: none;
 }

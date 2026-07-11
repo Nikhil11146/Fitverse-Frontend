@@ -48,7 +48,7 @@ export default function Workout() {
                 ) : (
                 <div key={workout._id} className="workout-container">
                     <Link exercises={exercises} to={`/workouts/${workout._id}`}>
-                        <WorkoutContainer workout={workout} owner={owner}/>
+                        <WorkoutContainer workout={workout} exercises={exercises} owner={owner}/>
                     </Link>
                     {
                         workout.ownerId === owner._id && (
